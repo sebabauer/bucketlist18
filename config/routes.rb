@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-resources :tasks, only: :index
+  get 'user_tasks/create'
+
+  get 'user_tasks/edit'
+
+resources :tasks, only: :index do
+  resources :user_tasks, :create, :edit 
+end
   devise_for :users
 
   root to: "tasks#index"
