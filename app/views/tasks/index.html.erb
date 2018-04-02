@@ -1,17 +1,38 @@
 <div class="container">
   <div class="row">
     <% @tasks.each_slice(3) do |row| %>
+
+
       <% row.each do |task| %>
+
+
         <div class="col">
           <div class="card">
+
             <%= image_tag task.picture, class: 'card-img-top' %>
 
             <div class="body">
 
               <h5> <%= task.name %> </h5>
               <p> <%= task.description %> </p>
-              <%= link_to "Enjoyado?", task_user_tasks_path(task) , class: 'btn btn-success', method: :post %>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <% if  task.users.include?(current_user) %>
+                <button> Listo </button>
+
+              <% else %>
+                <button> Falta </button>
+                <%= link_to "NO Enjoyado", task_user_tasks_path(task) , class: 'btn btn-success', method: :post %>
+
+              <% end %>
+
+              <!-- <p> <%= task.user_tasks.ids %> </p> -->
+              <!-- <% task.user_tasks.each do |user_task| %> -->
+                <%# if  task.users.include?(current_user) %>
+                  <%#= link_to "NO Enjoyado", task_user_tasks_path(task) , class: 'btn btn-success', method: :post %>
+                <%# else %>
+                  <!-- <%= link_to "Enjoyado", task_user_tasks_path(task) , class: 'btn btn-success' %> -->
+                  <!-- <button> JOYON </button> -->
+              <!-- <% end %> -->
+
             </div>
 
           </div>
