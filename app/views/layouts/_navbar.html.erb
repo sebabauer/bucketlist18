@@ -16,9 +16,16 @@
 
     </ul>
     <form class="form-inline my-2 my-lg-0">
+      <% unless user_signed_in? %>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button"><%=link_to "Sign In", new_user_session_path %>  </button>
+        <button class="btn btn-outline-primary" type="button" style="margin:10px"><%=link_to "REGISTER", new_user_registration_path %>  </button>
 
-      <button class="btn btn-outline-success my-2 my-sm-0" type="button">Sign In </button>
-      <button class="btn btn-outline-primary active" type="button" style="margin:10px">Register</button>
+      <% else %>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button"> <%= link_to "Edit", edit_user_registration_path  %></button>
+        <button class="btn btn-danger btn-outline-danger my-2 my-sm-0" type="button" style="margin:10px"><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></button>
+
+
+      <% end %>
     </form>
   </div>
 </nav>
