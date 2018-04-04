@@ -16,22 +16,17 @@
               <h5> <%= task.name %> </h5>
               <p> <%= task.description %> </p>
               <% if  task.users.include?(current_user) %>
-                <button> Listo </button>
+                <button type="button" class="btn btn-outline-warning">Enjoyado! </button>
+                <%#= link_to "Enjoyado", task_user_tasks_path(task) , class: 'btn btn-success', method: :post %>
+                <%#= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
 
               <% else %>
-                <button> Falta </button>
+
                 <%= link_to "NO Enjoyado", task_user_tasks_path(task) , class: 'btn btn-success', method: :post %>
 
               <% end %>
 
-              <!-- <p> <%= task.user_tasks.ids %> </p> -->
-              <!-- <% task.user_tasks.each do |user_task| %> -->
-                <%# if  task.users.include?(current_user) %>
-                  <%#= link_to "NO Enjoyado", task_user_tasks_path(task) , class: 'btn btn-success', method: :post %>
-                <%# else %>
-                  <!-- <%= link_to "Enjoyado", task_user_tasks_path(task) , class: 'btn btn-success' %> -->
-                  <!-- <button> JOYON </button> -->
-              <!-- <% end %> -->
+
 
             </div>
 

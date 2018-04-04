@@ -1,0 +1,22 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Tarea</th>
+        <th scope="col">Descripción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user_tasks.each do |user_task| %>
+        <tr>
+          <td><%= user_task.task.name %></td>
+          <td><%= user_task.task.description %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tr>
+      <td> Tareas Enjoyadas </td>
+      <td> <%= @user_tasks.count %> </td>
+    </tr>
+  </table>
+</div>
