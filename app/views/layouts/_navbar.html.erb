@@ -13,7 +13,11 @@
       <% else %>
         <a class="nav-link" href="<%= user_tasks_path %>"> Mis Joyas Completadas: 0  </a>
       <% end %>
+
       </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link disabled" href="#"> de: <%#= tasks.count %></a>
+      </li> -->
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <% unless user_signed_in? %>
