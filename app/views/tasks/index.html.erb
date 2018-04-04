@@ -17,8 +17,10 @@
               <p> <%= task.description %> </p>
               <% if  task.users.include?(current_user) %>
                 <button type="button" class="btn btn-outline-warning">Enjoyado! </button>
+
                 <%#= link_to "Enjoyado", task_user_tasks_path(task) , class: 'btn btn-success', method: :post %>
-                <%#= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+                <%#= link_to 'Destroy', task_user_task_path(), method: :DELETE, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+                <%= link_to "Borrar", task_user_task_path(task), method: :delete, data: { confirm: '¿Estás Seguro?' } %>
 
               <% else %>
 

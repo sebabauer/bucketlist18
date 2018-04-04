@@ -26,5 +26,12 @@ class UserTasksController < ApplicationController
     end
   end
 
+  def destroy
+    @task = Task.find(params[:task_id])
+    @user = current_user
+    @task.users.destroy(@user)
+    redirect_to root_path
+  end
+
 
 end
